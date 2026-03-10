@@ -7,6 +7,8 @@
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" name="viewport">
     <meta content="Travel With Saadi - Explore the Northern Areas of Pakistan with expert-guided tours" name="description">
     <meta content="travel, Pakistan, northern areas, Hunza, Skardu, tours" name="keywords">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://code.jquery.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; img-src 'self' data: https:; font-src 'self' data: https://fonts.gstatic.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; connect-src 'self'; frame-src https://www.google.com https://www.google.com/maps; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'; upgrade-insecure-requests">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
 
     <!-- Favicon -->
     <link href="img/walking-tour.png" rel="icon">
@@ -89,9 +91,11 @@
                         <h1 class="display-3 text-white mb-3 animated slideInDown">Explore the North With Us</h1>
                         <p class="fs-4 text-white mb-4 animated slideInDown">Discover the beauty of Pakistan's northern areas with our expert-guided tours</p>
                         <div class="position-relative w-75 mx-auto animated slideInDown search-container">
-                            <input class="form-control border-0 rounded-pill w-100 py-3 ps-4 pe-5" type="text" placeholder="Search Destination...">
-                            <button type="button" class="btn btn-primary rounded-pill py-2 px-4 position-absolute top-0 end-0 me-2" style="margin-top: 7px;">Search</button>
+                            <input id="destinationSearchInput" class="form-control border-0 rounded-pill w-100 py-3 ps-4 pe-5" type="text" placeholder="Search Destination..." aria-label="Search destination">
+                            <button id="destinationSearchBtn" type="button" class="btn btn-primary rounded-pill py-2 px-4 position-absolute top-0 end-0 me-2" style="margin-top: 7px;">Search</button>
                         </div>
+                        <div id="destinationSearchResults" class="list-group w-75 mx-auto mt-2 text-start"></div>
+                        <div id="destinationSearchMessage" class="text-white mt-2 small"></div>
                     </div>
                 </div>
             </div>
@@ -500,8 +504,8 @@
     <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
 
     <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="lib/wow/wow.min.js"></script>
     <script src="lib/easing/easing.min.js"></script>
     <script src="lib/waypoints/waypoints.min.js"></script>
