@@ -5,9 +5,11 @@
     <meta charset="utf-8">
     <title>Travel With Saadi - Home</title>
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" name="viewport">
-    <meta content="Travel With Saadi - Explore the Northern Areas of Pakistan with expert-guided tours" name="description">
+    <meta content="Travel With Saadi - Explore the Northern Areas of Pakistan with expert-guided tours"
+        name="description">
     <meta content="travel, Pakistan, northern areas, Hunza, Skardu, tours" name="keywords">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://code.jquery.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; img-src 'self' data: https:; font-src 'self' data: https://fonts.gstatic.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; connect-src 'self'; frame-src https://www.google.com https://www.google.com/maps; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'; upgrade-insecure-requests">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' https://code.jquery.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; img-src 'self' data: https:; font-src 'self' data: https://fonts.gstatic.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; connect-src 'self'; frame-src https://www.google.com https://www.google.com/maps; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'; upgrade-insecure-requests">
     <meta name="referrer" content="strict-origin-when-cross-origin">
 
     <!-- Favicon -->
@@ -16,7 +18,9 @@
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&family=Playfair+Display:wght@400;700;900&display=swap"
+        rel="stylesheet">
 
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -30,11 +34,905 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+    <link href="css/enhancements.css" rel="stylesheet">
+
+    <style>
+        /* ===== INTERACTIVE ENHANCEMENTS ===== */
+
+        /* Scroll Progress Bar */
+        #scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #86B817, #FE8800, #86B817);
+            background-size: 200% auto;
+            z-index: 99999;
+            width: 0%;
+            animation: shimmer 2s linear infinite;
+            box-shadow: 0 0 8px rgba(134, 184, 23, 0.6);
+        }
+
+        @keyframes shimmer {
+            to {
+                background-position: 200% center;
+            }
+        }
+
+        /* ===== LOGO STYLES ===== */
+        .brand-logo-link {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            gap: 10px;
+        }
+
+        .logo-circle-wrap {
+            position: relative;
+            width: 50px;
+            height: 50px;
+            flex-shrink: 0;
+        }
+
+        .logo-circle-wrap::before {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            border-radius: 50%;
+            background: conic-gradient(#86B817, #FE8800, #86B817);
+            animation: logoRingRotate 4s linear infinite;
+            z-index: 0;
+        }
+
+        .logo-circle-wrap::after {
+            content: '';
+            position: absolute;
+            inset: 2px;
+            border-radius: 50%;
+            background: white;
+            z-index: 1;
+        }
+
+        .logo-img {
+            position: absolute;
+            inset: 4px;
+            width: calc(100% - 8px);
+            height: calc(100% - 8px);
+            border-radius: 50%;
+            object-fit: cover;
+            z-index: 2;
+            transition: transform 0.4s ease;
+        }
+
+        .brand-logo-link:hover .logo-img {
+            transform: rotate(10deg) scale(1.05);
+        }
+
+        .logo-text-wrap {
+            display: flex;
+            flex-direction: column;
+            line-height: 1;
+        }
+
+        .logo-travel {
+            font-family: 'Nunito', sans-serif;
+            font-weight: 800;
+            font-size: 1.3rem;
+            color: #86B817;
+            letter-spacing: -0.5px;
+        }
+
+        .logo-saadi {
+            font-family: 'Nunito', sans-serif;
+            font-weight: 700;
+            font-size: 0.72rem;
+            color: #FE8800;
+            letter-spacing: 3.5px;
+            text-transform: uppercase;
+            margin-top: 1px;
+        }
+
+        @media (min-width: 992px) {
+            .logo-circle-wrap {
+                width: 56px;
+                height: 56px;
+            }
+
+            .logo-travel {
+                font-size: 1.5rem;
+            }
+
+            .logo-saadi {
+                font-size: 0.78rem;
+            }
+        }
+
+        @keyframes logoRingRotate {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* ===== CINEMATIC HERO ===== */
+        .hero-header {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(rgba(8, 12, 22, 0.82), rgba(8, 12, 22, 0.78)),
+                url('../img/bg-hero.jpg') center/cover no-repeat !important;
+        }
+
+        .hero-header h1 {
+            font-family: 'Playfair Display', serif !important;
+            font-weight: 900;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, #ffffff 0%, #d4f07a 50%, #FE8800 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: heroShift 6s ease-in-out infinite;
+            background-size: 200% auto;
+        }
+
+        @keyframes heroShift {
+
+            0%,
+            100% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+
+        .hero-p {
+            color: rgba(255, 255, 255, 0.88);
+            font-size: 1.1rem;
+            letter-spacing: 0.3px;
+        }
+
+        @media (min-width: 768px) {
+            .hero-p {
+                font-size: 1.25rem;
+            }
+        }
+
+        /* Decorative hero top badge */
+        .hero-badge {
+            display: inline-block;
+            padding: 5px 18px;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: 50px;
+            color: rgba(255, 255, 255, 0.75);
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 1.2rem;
+            backdrop-filter: blur(8px);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .hero-particle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.12);
+            animation: floatParticle linear infinite;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        @keyframes floatParticle {
+            0% {
+                transform: translateY(110vh) rotate(0deg);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 0.8;
+            }
+
+            90% {
+                opacity: 0.5;
+            }
+
+            100% {
+                transform: translateY(-100px) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        .hero-header .row {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-header::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 55% 45%, rgba(134, 184, 23, 0.12) 0%, transparent 65%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* ===== STATS SECTION ===== */
+        .stats-section {
+            background: linear-gradient(135deg, #2c5f0a 0%, #4a8c14 40%, #86B817 70%, #FE8800 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stats-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 2rem 1rem;
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-8px);
+        }
+
+        .stat-icon {
+            font-size: 2.5rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 0.75rem;
+            display: block;
+            transition: transform 0.4s ease;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+        }
+
+        .stat-item:hover .stat-icon {
+            transform: scale(1.25) rotate(10deg);
+        }
+
+        .stat-number {
+            font-family: 'Nunito', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: white;
+            line-height: 1;
+            margin-bottom: 0.4rem;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (min-width: 768px) {
+            .stat-number {
+                font-size: 3.5rem;
+            }
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.85);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .stat-divider {
+            width: 1px;
+            background: rgba(255, 255, 255, 0.2);
+            align-self: stretch;
+            margin: 1rem 0;
+        }
+
+        /* ===== CINEMATIC DESTINATION CARDS ===== */
+
+        /* Image frame — shows FULL image without cropping */
+        .dest-img-frame {
+            position: relative;
+            aspect-ratio: 4 / 3;
+            background: var(--cinema-dark);
+            overflow: hidden;
+        }
+
+        .dest-full-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* fills frame, crops edges */
+            object-position: center;
+            display: block;
+            transition: transform 0.55s var(--cinema-ease), filter 0.55s ease;
+        }
+
+        .dest-cine-card {
+            position: relative;
+            border-radius: var(--cinema-radius);
+            overflow: hidden;
+            background: var(--cinema-card);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.18);
+            transition: box-shadow 0.4s ease, transform 0.4s var(--cinema-ease);
+            will-change: transform;
+        }
+
+        .dest-cine-card:hover {
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(134, 184, 23, 0.25);
+        }
+
+        .dest-cine-card:hover .dest-full-img {
+            filter: brightness(0.88) saturate(1.15);
+            transform: scale(1.04);
+        }
+
+        /* Bottom overlay with name/meta */
+        .dest-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top,
+                    rgba(0, 0, 0, 0.80) 0%,
+                    rgba(0, 0, 0, 0.35) 40%,
+                    transparent 70%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 0.9rem 1rem;
+            transition: background 0.4s ease;
+        }
+
+        .dest-cine-card:hover .dest-overlay {
+            background: linear-gradient(to top,
+                    rgba(0, 0, 0, 0.92) 0%,
+                    rgba(0, 0, 0, 0.50) 50%,
+                    rgba(0, 0, 0, 0.1) 100%);
+        }
+
+        .dest-overlay h5 {
+            color: #fff;
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+        }
+
+        @media (min-width: 576px) {
+            .dest-overlay h5 {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .dest-overlay h5 {
+                font-size: 1.2rem;
+            }
+        }
+
+        .dest-meta {
+            display: flex;
+            gap: 0.6rem;
+            margin-bottom: 0.35rem;
+            flex-wrap: wrap;
+        }
+
+        .dest-meta span {
+            font-size: 0.7rem;
+            color: rgba(255, 255, 255, 0.82);
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(6px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 50px;
+            padding: 2px 8px;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+        }
+
+        @media (min-width: 576px) {
+            .dest-meta span {
+                font-size: 0.75rem;
+            }
+        }
+
+        .dest-explore-btn {
+            display: inline-block;
+            margin-top: 0.45rem;
+            padding: 4px 14px;
+            background: var(--cinema-green);
+            color: #fff;
+            border-radius: 50px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-decoration: none;
+            letter-spacing: 0.5px;
+            opacity: 0;
+            transform: translateY(8px);
+            transition: opacity 0.3s ease 0.05s, transform 0.3s ease 0.05s, background 0.2s ease;
+            width: fit-content;
+        }
+
+        .dest-cine-card:hover .dest-explore-btn {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .dest-explore-btn:hover {
+            background: var(--cinema-orange);
+            color: #fff;
+        }
+
+        /* ===== 3D CARD EFFECTS (kept for service cards) ===== */
+        .package-item {
+            transition: box-shadow 0.4s ease;
+            will-change: transform;
+        }
+
+        .package-item:hover {
+            box-shadow: 0 25px 55px rgba(0, 0, 0, 0.18), 0 0 0 1px rgba(134, 184, 23, 0.15) !important;
+        }
+
+        /* ===== SERVICE ITEM 3D ===== */
+        .service-item {
+            transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s ease, background 0.3s ease;
+            cursor: default;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-item::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(134, 184, 23, 0) 0%, rgba(134, 184, 23, 0.06) 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            border-radius: inherit;
+        }
+
+        .service-item:hover::before {
+            opacity: 1;
+        }
+
+        .service-item:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(134, 184, 23, 0.25) !important;
+        }
+
+        .service-item i {
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), color 0.3s ease;
+        }
+
+        .service-item:hover i {
+            transform: scale(1.35) rotate(-8deg);
+            color: #FE8800 !important;
+        }
+
+        /* ===== ABOUT IMAGE 3D ===== */
+        .about-img-3d {
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+            transform-style: preserve-3d;
+        }
+
+        .about-img-3d:hover {
+            transform: perspective(1200px) rotateY(-4deg) rotateX(2deg) translateY(-6px);
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.2) !important;
+        }
+
+        .about-img-3d img {
+            transition: transform 0.6s ease;
+        }
+
+        .about-img-3d:hover img {
+            transform: scale(1.04);
+        }
+
+        /* Feature list hover */
+        .feature-item {
+            transition: transform 0.25s ease, color 0.25s ease;
+            padding: 3px 0;
+            border-radius: 6px;
+            cursor: default;
+        }
+
+        .feature-item:hover {
+            transform: translateX(8px);
+        }
+
+        .feature-item:hover i {
+            transform: rotate(90deg) scale(1.2);
+            color: #FE8800 !important;
+        }
+
+        .feature-item i {
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        /* ===== FLOATING WHATSAPP ===== */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 80px;
+            right: 18px;
+            z-index: 9998;
+            width: 58px;
+            height: 58px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.55);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: waPulse 2.5s ease-in-out infinite;
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.15);
+            box-shadow: 0 8px 30px rgba(37, 211, 102, 0.75);
+            animation: none;
+        }
+
+        .whatsapp-float i {
+            color: white;
+            font-size: 28px;
+            line-height: 1;
+        }
+
+        .wa-tooltip {
+            position: absolute;
+            right: 68px;
+            background: #25D366;
+            color: white;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.83rem;
+            font-weight: 700;
+            white-space: nowrap;
+            opacity: 0;
+            transform: translateX(8px);
+            transition: all 0.3s ease;
+            pointer-events: none;
+            font-family: 'Nunito', sans-serif;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+        }
+
+        .whatsapp-float:hover .wa-tooltip {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        @keyframes waPulse {
+
+            0%,
+            100% {
+                box-shadow: 0 4px 20px rgba(37, 211, 102, 0.55);
+            }
+
+            50% {
+                box-shadow: 0 4px 35px rgba(37, 211, 102, 0.8), 0 0 0 10px rgba(37, 211, 102, 0.1);
+            }
+        }
+
+        /* ===== BUTTON RIPPLE ===== */
+        .btn-primary {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.25);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.5s ease, height 0.5s ease, opacity 0.5s ease;
+            opacity: 0;
+        }
+
+        .btn-primary:hover::after {
+            width: 300px;
+            height: 300px;
+            opacity: 1;
+        }
+
+        /* ===== NAVBAR SCROLL GLASS ===== */
+        .navbar.scrolled {
+            background: rgba(255, 255, 255, 0.94) !important;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1) !important;
+        }
+
+        /* ===== SECTION REVEAL ===== */
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(45px);
+            transition: opacity 0.75s ease, transform 0.75s ease;
+        }
+
+        .reveal-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== FOOTER LINKS HOVER ===== */
+        .footer .btn-link {
+            transition: transform 0.25s ease, color 0.25s ease;
+            display: inline-block;
+        }
+
+        .footer .btn-link:hover {
+            transform: translateX(6px);
+            color: #FE8800 !important;
+        }
+
+        /* ===== CONTACT ICONS FLOAT ===== */
+        .contact-icon-wrap {
+            transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease;
+        }
+
+        .contact-icon-wrap:hover {
+            transform: scale(1.18) rotate(-5deg);
+            box-shadow: 0 8px 20px rgba(134, 184, 23, 0.4) !important;
+        }
+
+        /* ===== SECTION TITLE UNDERLINE ANIMATION ===== */
+        .section-title {
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #86B817, #FE8800);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s ease;
+        }
+
+        .text-center .section-title::after {
+            transform-origin: center;
+        }
+
+        .section-title.animated::after {
+            transform: scaleX(1);
+        }
+
+        /* ===== MOBILE FIXES ===== */
+        @media (max-width: 575px) {
+            .logo-travel {
+                font-size: 1.15rem;
+            }
+
+            .logo-saadi {
+                font-size: 0.62rem;
+                letter-spacing: 2.5px;
+            }
+
+            .logo-circle-wrap {
+                width: 42px;
+                height: 42px;
+            }
+
+            .stat-number {
+                font-size: 2.2rem;
+            }
+
+            .stat-label {
+                font-size: 0.75rem;
+                letter-spacing: 1px;
+            }
+        }
+
+        /* ===== WAVE DIVIDERS ===== */
+        .wave-top,
+        .wave-bottom {
+            display: block;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+        }
+
+        .wave-top svg,
+        .wave-bottom svg {
+            display: block;
+        }
+
+        /* ===== CINEMATIC SECTION BACKGROUNDS ===== */
+        .section-cinematic {
+            background: linear-gradient(180deg, #f8fcf0 0%, #ffffff 100%);
+            position: relative;
+        }
+
+        .dest-section-bg {
+            background: #f4f8ff;
+            position: relative;
+        }
+
+        /* ===== TRIP CATEGORY HEADINGS ===== */
+        .trip-category-head {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid rgba(134, 184, 23, 0.15);
+        }
+
+        .trip-cat-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #86B817, #5a8a0a);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1rem;
+            flex-shrink: 0;
+            box-shadow: 0 4px 15px rgba(134, 184, 23, 0.35);
+        }
+
+        .trip-category-head h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin: 0;
+            color: #1a2a0a;
+        }
+
+        /* ===== ABOUT SECTION CINEMATIC ===== */
+        .about-label {
+            display: inline-block;
+            padding: 4px 16px;
+            background: rgba(134, 184, 23, 0.1);
+            border: 1px solid rgba(134, 184, 23, 0.3);
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: #86B817;
+            margin-bottom: 1rem;
+        }
+
+        /* ===== SERVICE CARD CINEMATIC ===== */
+        .svc-cine-card {
+            background: #fff;
+            border-radius: 20px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            border: 1px solid rgba(134, 184, 23, 0.1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.055);
+            transition: transform 0.4s var(--cinema-ease), box-shadow 0.4s ease, background 0.3s ease, border-color 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+        }
+
+        .svc-cine-card::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #86B817, #FE8800);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .svc-cine-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .svc-cine-card:hover {
+            transform: translateY(-14px);
+            box-shadow: 0 24px 55px rgba(134, 184, 23, 0.2);
+            border-color: rgba(134, 184, 23, 0.25);
+        }
+
+        .svc-icon-wrap {
+            width: 72px;
+            height: 72px;
+            margin: 0 auto 1.2rem;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(134, 184, 23, 0.1), rgba(254, 136, 0, 0.08));
+            transition: transform 0.4s var(--cinema-ease), background 0.3s ease;
+        }
+
+        .svc-cine-card:hover .svc-icon-wrap {
+            transform: scale(1.15) rotate(-6deg);
+            background: linear-gradient(135deg, rgba(134, 184, 23, 0.2), rgba(254, 136, 0, 0.15));
+        }
+
+        .svc-icon-wrap i {
+            font-size: 2rem;
+            color: #86B817;
+            transition: color 0.3s ease;
+        }
+
+        .svc-cine-card:hover .svc-icon-wrap i {
+            color: #FE8800;
+        }
+
+        .svc-cine-card h5 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.05rem;
+            color: #1a2a0a;
+            margin-bottom: 0.5rem;
+        }
+
+        .svc-cine-card p {
+            font-size: 0.88rem;
+            color: #6b7b6e;
+            margin: 0;
+        }
+
+        /* ===== CONTACT FORM CINEMATIC ===== */
+        .contact-form-cine {
+            background: linear-gradient(145deg, #fff 60%, #f4fce8 100%);
+            border-radius: 24px;
+            padding: 2rem;
+            box-shadow: 0 8px 40px rgba(134, 184, 23, 0.12);
+            border: 1px solid rgba(134, 184, 23, 0.12);
+        }
+
+        /* ===== FOOTER BRAND LOGO ===== */
+        .footer-brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-brand span {
+            color: #86B817;
+        }
+
+        /* ===== CURSOR GLOW (desktop) ===== */
+        .cursor-glow {
+            position: fixed;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(134, 184, 23, 0.45) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 99998;
+            transform: translate(-50%, -50%);
+            transition: transform 0.08s linear;
+            display: none;
+        }
+
+        @media (hover: hover) {
+            .cursor-glow {
+                display: block;
+            }
+        }
+    </style>
 </head>
 
 <body>
+    <!-- Page Transition Overlay -->
+    <div id="page-transition"></div>
+    <!-- Scroll Progress Bar -->
+    <div id="scroll-progress"></div>
+    <!-- Cursor Glow -->
+    <div class="cursor-glow" id="cursorGlow"></div>
+
     <!-- Spinner Start -->
-    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+    <div id="spinner"
+        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
         <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
             <span class="sr-only">Loading...</span>
         </div>
@@ -46,16 +944,23 @@
         <div class="row gx-0">
             <div class="col-lg-8 text-center text-lg-start mb-2 mb-lg-0">
                 <div class="d-inline-flex align-items-center" style="height: 45px;">
-                    <small class="me-3 text-light"><i class="fa fa-map-marker-alt me-2"></i>GT Road Haripur, Pakistan</small>
+                    <small class="me-3 text-light"><i class="fa fa-map-marker-alt me-2"></i>GT Road Haripur,
+                        Pakistan</small>
                     <small class="me-3 text-light"><i class="fa fa-phone-alt me-2"></i>+92 3350910377</small>
                     <small class="text-light"><i class="fa fa-envelope-open me-2"></i>ubaidsaad55@gmail.com</small>
                 </div>
             </div>
             <div class="col-lg-4 text-center text-lg-end">
                 <div class="d-inline-flex align-items-center" style="height: 45px;">
-                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://www.linkedin.com/in/saad-ubaid-74a6013ab"><i class="fab fa-linkedin-in fw-normal"></i></a>
-                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://www.instagram.com/travelwithsaadi.pk?igsh=NWtmemMyOGljcjRj"><i class="fab fa-instagram fw-normal"></i></a>
-                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle" href="https://Api.whatsapp.com/send?phone=923350910377&text=Hello! I'm interested in your travel services. Please provide more information."><i class="fab fa-whatsapp fw-normal"></i></a>
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2"
+                        href="https://www.linkedin.com/in/saad-ubaid-74a6013ab"><i
+                            class="fab fa-linkedin-in fw-normal"></i></a>
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2"
+                        href="https://www.instagram.com/travelwithsaadi.pk?igsh=NWtmemMyOGljcjRj"><i
+                            class="fab fa-instagram fw-normal"></i></a>
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle"
+                        href="https://Api.whatsapp.com/send?phone=923350910377&text=Hello! I'm interested in your travel services. Please provide more information."><i
+                            class="fab fa-whatsapp fw-normal"></i></a>
                 </div>
             </div>
         </div>
@@ -65,8 +970,14 @@
     <!-- Navbar Start -->
     <div class="container-fluid position-relative p-0">
         <nav class="navbar navbar-expand-lg navbar-light px-3 px-lg-5 py-3 py-lg-0">
-            <a href="index.html" class="navbar-brand p-0">
-                <h1 class="text-primary m-0"><i class="fa fa-map-marker-alt me-2 me-lg-3"></i>Travel With Saadi</h1>
+            <a href="index.html" class="navbar-brand p-0 brand-logo-link">
+                <div class="logo-circle-wrap">
+                    <img src="img/logo.png" alt="Logo" class="logo-img">
+                </div>
+                <div class="logo-text-wrap ms-2">
+                    <span class="logo-travel">Travel</span>
+                    <span class="logo-saadi">with Saadi</span>
+                </div>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                 <span class="fa fa-bars"></span>
@@ -79,7 +990,8 @@
                     <a href="destination.html" class="nav-item nav-link">Destination</a>
                     <a href="contact.html" class="nav-item nav-link">Contact</a>
                 </div>
-                <a href="https://Api.whatsapp.com/send?phone=923350910377&text=Hello! I'm interested in booking a tour. Please provide details." class="btn btn-primary rounded-pill py-2 px-4">Book Now</a>
+                <a href="https://Api.whatsapp.com/send?phone=923350910377&text=Hello! I'm interested in booking a tour. Please provide details."
+                    class="btn btn-primary rounded-pill py-2 px-4">Book Now</a>
             </div>
         </nav>
 
@@ -88,13 +1000,22 @@
             <div class="container py-5">
                 <div class="row justify-content-center py-5">
                     <div class="col-lg-10 pt-lg-5 mt-lg-5 text-center">
-                        <h1 class="display-3 text-white mb-3 animated slideInDown">Explore the North With Us</h1>
-                        <p class="fs-4 text-white mb-4 animated slideInDown">Discover the beauty of Pakistan's northern areas with our expert-guided tours</p>
-                        <div class="position-relative w-75 mx-auto animated slideInDown search-container">
-                            <input id="destinationSearchInput" class="form-control border-0 rounded-pill w-100 py-3 ps-4 pe-5" type="text" placeholder="Search Destination..." aria-label="Search destination">
-                            <button id="destinationSearchBtn" type="button" class="btn btn-primary rounded-pill py-2 px-4 position-absolute top-0 end-0 me-2" style="margin-top: 7px;">Search</button>
+                        <p class="hero-badge animated slideInDown"><i class="fa fa-mountain me-2"></i>Pakistan's Premier
+                            Travel Experience</p>
+                        <h1 class="display-3 text-white mb-3 animated slideInDown">Explore the North<br>With Us</h1>
+                        <p class="hero-p mb-4 animated slideInDown">Discover the breathtaking beauty of Pakistan's
+                            northern areas<br class="d-none d-md-block">with our expert-guided cinematic journeys</p>
+                        <div
+                            class="position-relative w-100 px-3 px-sm-0 w-sm-75 mx-auto animated slideInDown search-container">
+                            <input id="destinationSearchInput"
+                                class="form-control border-0 rounded-pill w-100 py-3 ps-4 pe-5" type="text"
+                                placeholder="Search Destination... (e.g. Hunza, Naran)" aria-label="Search destination"
+                                autocomplete="off">
+                            <button id="destinationSearchBtn" type="button"
+                                class="btn btn-primary rounded-pill py-2 px-3 px-sm-4 position-absolute top-0 end-0 me-2"
+                                style="margin-top: 7px;">Search</button>
+                            <div id="searchSuggestions" role="listbox" aria-label="Search suggestions"></div>
                         </div>
-                        <div id="destinationSearchResults" class="list-group w-75 mx-auto mt-2 text-start"></div>
                         <div id="destinationSearchMessage" class="text-white mt-2 small"></div>
                     </div>
                 </div>
@@ -104,38 +1025,57 @@
     </div>
     <!-- Navbar End -->
 
+    <!-- Wave Divider after Hero -->
+    <div class="wave-bottom" style="margin-top:-2px;background:#86B817">
+        <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,30 C360,80 1080,-20 1440,30 L1440,0 L0,0 Z" fill="#86B817" />
+            <path d="M0,40 C400,90 1040,-10 1440,40 L1440,60 L0,60 Z" fill="#ffffff" />
+        </svg>
+    </div>
+
     <!-- About Start -->
     <div class="container-fluid py-5">
         <div class="container">
             <div class="row g-5 align-items-center">
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="position-relative rounded-4 overflow-hidden shadow">
-                        <img class="img-fluid w-100" src="img/about.jpeg" alt="About Travel With Saadi" style="min-height: 300px; object-fit: cover;">
+                    <div class="about-img-frame about-img-3d">
+                        <img src="img/about.jpeg" alt="About Travel With Saadi" style="object-position: center top;">
                     </div>
                 </div>
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <p class="about-label"><i class="fa fa-compass me-2"></i>Our Story</p>
                     <h6 class="section-title bg-white text-start text-primary pe-3">About Us</h6>
-                    <h1 class="mb-4">Welcome to <span class="text-primary">Travel With Saadi</span></h1>
-                    <p class="mb-4">We are your premier travel partner for exploring the breathtaking northern areas of Pakistan. With years of experience and a passion for travel, we ensure unforgettable journeys through the most scenic destinations.</p>
-                    <p class="mb-4">From the lush green valleys of Swat and Naran to the majestic mountains of Hunza and Skardu, we offer customized tour packages that cater to every traveler's needs.</p>
+                    <h1 class="mb-4" style="font-family:'Playfair Display',serif;">Welcome to <span
+                            class="text-primary">Travel With Saadi</span></h1>
+                    <p class="mb-4">We are your premier travel partner for exploring the breathtaking northern areas of
+                        Pakistan. With years of experience and a passion for travel, we ensure unforgettable journeys
+                        through the most scenic destinations.</p>
+                    <p class="mb-4">From the lush green valleys of Swat and Naran to the majestic mountains of Hunza and
+                        Skardu, we offer customized tour packages that cater to every traveler's needs.</p>
                     <div class="row gy-2 gx-4 mb-4">
                         <div class="col-sm-6">
-                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Family Tours</p>
+                            <p class="mb-0 feature-item"><i class="fa fa-arrow-right text-primary me-2"></i>Family Tours
+                            </p>
                         </div>
                         <div class="col-sm-6">
-                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Private Tours</p>
+                            <p class="mb-0 feature-item"><i class="fa fa-arrow-right text-primary me-2"></i>Private
+                                Tours</p>
                         </div>
                         <div class="col-sm-6">
-                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Honeymoon Packages</p>
+                            <p class="mb-0 feature-item"><i class="fa fa-arrow-right text-primary me-2"></i>Honeymoon
+                                Packages</p>
                         </div>
                         <div class="col-sm-6">
-                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Group Tours</p>
+                            <p class="mb-0 feature-item"><i class="fa fa-arrow-right text-primary me-2"></i>Group Tours
+                            </p>
                         </div>
                         <div class="col-sm-6">
-                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Corporate Tours</p>
+                            <p class="mb-0 feature-item"><i class="fa fa-arrow-right text-primary me-2"></i>Corporate
+                                Tours</p>
                         </div>
                         <div class="col-sm-6">
-                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>University & College Tours</p>
+                            <p class="mb-0 feature-item"><i class="fa fa-arrow-right text-primary me-2"></i>University
+                                &amp; College Tours</p>
                         </div>
                     </div>
                     <a class="btn btn-primary py-3 px-5 mt-2 rounded-pill" href="about.html">Read More</a>
@@ -145,68 +1085,114 @@
     </div>
     <!-- About End -->
 
+    <!-- Stats Section Start -->
+    <div class="container-fluid py-5 stats-section">
+        <div class="container">
+            <div class="row g-0 reveal-up">
+                <div class="col-6 col-lg-3">
+                    <div class="stat-item">
+                        <i class="fa fa-map-marked-alt stat-icon"></i>
+                        <div class="stat-number">
+                            <span class="counter-value" data-target="10" data-suffix="+">10+</span>
+                        </div>
+                        <div class="stat-label">Destinations</div>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-3">
+                    <div class="stat-item">
+                        <i class="fa fa-users stat-icon"></i>
+                        <div class="stat-number">
+                            <span class="counter-value" data-target="1500" data-suffix="+">1500+</span>
+                        </div>
+                        <div class="stat-label">Happy Travelers</div>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-3">
+                    <div class="stat-item">
+                        <i class="fa fa-star stat-icon"></i>
+                        <div class="stat-number">
+                            <span class="counter-value" data-target="5" data-suffix="★">5★</span>
+                        </div>
+                        <div class="stat-label">Average Rating</div>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-3">
+                    <div class="stat-item">
+                        <i class="fa fa-calendar-check stat-icon"></i>
+                        <div class="stat-number">
+                            <span class="counter-value" data-target="200" data-suffix="+">200+</span>
+                        </div>
+                        <div class="stat-label">Tours Completed</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Stats Section End -->
+
     <!-- Service Start -->
-    <div class="container-fluid py-5 bg-light">
+    <div class="container-fluid py-5" style="background: linear-gradient(180deg,#f8fcf0 0%,#ffffff 100%)">
         <div class="container">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
                 <h6 class="section-title bg-white text-center text-primary px-3">Services</h6>
-                <h1 class="mb-5">What We Offer</h1>
+                <h1 class="mb-2" style="font-family:'Playfair Display',serif">What We Offer</h1>
+                <p class="text-muted mb-5">Tailored experiences for every kind of traveler</p>
             </div>
             <div class="row g-4">
                 <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="service-item rounded-4 p-4 text-center shadow-sm h-100">
-                        <i class="fa fa-3x fa-users text-primary mb-4"></i>
+                    <div class="svc-cine-card">
+                        <div class="svc-icon-wrap"><i class="fa fa-users"></i></div>
                         <h5>Family Tours</h5>
-                        <p class="mb-0">Enjoy quality time with your loved ones in the beautiful northern areas</p>
+                        <p>Enjoy quality time with your loved ones in the beautiful northern areas</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="svc-cine-card">
+                        <div class="svc-icon-wrap"><i class="fa fa-user-tie"></i></div>
+                        <h5>Private Tours</h5>
+                        <p>Exclusive personalized tours designed just for you and your group</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="service-item rounded-4 p-4 text-center shadow-sm h-100">
-                        <i class="fa fa-3x fa-user-tie text-primary mb-4"></i>
-                        <h5>Private Tours</h5>
-                        <p class="mb-0">Exclusive personalized tours designed just for you and your group</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="service-item rounded-4 p-4 text-center shadow-sm h-100">
-                        <i class="fa fa-3x fa-heart text-primary mb-4"></i>
+                    <div class="svc-cine-card">
+                        <div class="svc-icon-wrap"><i class="fa fa-heart"></i></div>
                         <h5>Honeymoon</h5>
-                        <p class="mb-0">Romantic getaways to the most scenic destinations in Pakistan</p>
+                        <p>Romantic getaways to the most scenic destinations in Pakistan</p>
                     </div>
                 </div>
-                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
-                    <div class="service-item rounded-4 p-4 text-center shadow-sm h-100">
-                        <i class="fa fa-3x fa-users-cog text-primary mb-4"></i>
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.4s">
+                    <div class="svc-cine-card">
+                        <div class="svc-icon-wrap"><i class="fa fa-users-cog"></i></div>
                         <h5>Group Tours</h5>
-                        <p class="mb-0">Join our group tours and make new friends while exploring</p>
+                        <p>Join our group tours and make new friends while exploring</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="service-item rounded-4 p-4 text-center shadow-sm h-100">
-                        <i class="fa fa-3x fa-briefcase text-primary mb-4"></i>
+                    <div class="svc-cine-card">
+                        <div class="svc-icon-wrap"><i class="fa fa-briefcase"></i></div>
                         <h5>Corporate Tours</h5>
-                        <p class="mb-0">Team building and corporate retreats in serene locations</p>
+                        <p>Team building and corporate retreats in serene locations</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="svc-cine-card">
+                        <div class="svc-icon-wrap"><i class="fa fa-route"></i></div>
+                        <h5>Customized Tours</h5>
+                        <p>Tailor-made itineraries according to your preferences</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="service-item rounded-4 p-4 text-center shadow-sm h-100">
-                        <i class="fa fa-3x fa-route text-primary mb-4"></i>
-                        <h5>Customized Tours</h5>
-                        <p class="mb-0">Tailor-made itineraries according to your preferences</p>
+                    <div class="svc-cine-card">
+                        <div class="svc-icon-wrap"><i class="fa fa-graduation-cap"></i></div>
+                        <h5>University &amp; College Tours</h5>
+                        <p>Educational and recreational trips for students</p>
                     </div>
                 </div>
-                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="service-item rounded-4 p-4 text-center shadow-sm h-100">
-                        <i class="fa fa-3x fa-graduation-cap text-primary mb-4"></i>
-                        <h5>University & College Tours</h5>
-                        <p class="mb-0">Educational and recreational trips for students</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
-                    <div class="service-item rounded-4 p-4 text-center shadow-sm h-100">
-                        <i class="fa fa-3x fa-mountain text-primary mb-4"></i>
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.4s">
+                    <div class="svc-cine-card">
+                        <div class="svc-icon-wrap"><i class="fa fa-mountain"></i></div>
                         <h5>Adventure Tours</h5>
-                        <p class="mb-0">Thrilling experiences for adventure enthusiasts</p>
+                        <p>Thrilling experiences for adventure enthusiasts</p>
                     </div>
                 </div>
             </div>
@@ -215,140 +1201,157 @@
     <!-- Service End -->
 
     <!-- Destinations Preview Start -->
-    <div class="container-fluid py-5">
+    <div class="container-fluid py-5" style="background:linear-gradient(180deg,#eef5e0 0%,#f9fbf4 100%)">
         <div class="container">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
                 <h6 class="section-title bg-white text-center text-primary px-3">Destinations</h6>
-                <h1 class="mb-5">Popular Destinations</h1>
+                <h1 class="mb-2" style="font-family:'Playfair Display',serif">Popular Destinations</h1>
+                <p class="text-muted mb-5">Every image shows the full, unedited beauty &mdash; no cropping, no filters
+                </p>
             </div>
-            
+
             <!-- 1 Day Trips -->
             <div class="mb-5">
-                <h3 class="mb-4"><i class="fa fa-sun text-primary me-2"></i> 1 Day Trips</h3>
+                <div class="trip-category-head">
+                    <div class="trip-cat-icon"><i class="fa fa-sun"></i></div>
+                    <h3>1 Day Trips</h3>
+                </div>
                 <div class="row g-4">
                     <div class="col-lg-3 col-md-6 col-6 wow fadeInUp" data-wow-delay="0.1s">
-                        <div class="package-item rounded-4 overflow-hidden shadow-sm h-100">
-                            <div class="overflow-hidden">
-                                <img class="img-fluid" src="img/shogran.jpeg" alt="Shogran" style="width: 100%; height: 200px; object-fit: cover;">
+                        <div class="dest-cine-card">
+                            <div class="dest-img-frame">
+                                <img class="dest-full-img" src="img/shogran.jpeg" alt="Shogran">
+                                <div class="dest-overlay">
+                                    <div class="dest-meta">
+                                        <span><i class="fa fa-map-marker-alt me-1"></i>KPK</span>
+                                        <span><i class="fa fa-clock me-1"></i>1 Day</span>
+                                    </div>
+                                    <h5>Shogran</h5>
+                                    <a href="destination.html" class="dest-explore-btn">Explore &rarr;</a>
+                                </div>
                             </div>
-                            <div class="d-flex border-bottom">
-                                <small class="flex-fill text-center border-end py-2"><i class="fa fa-map-marker-alt text-primary me-2"></i>KPK</small>
-                                <small class="flex-fill text-center py-2"><i class="fa fa-clock text-primary me-2"></i>1 Day</small>
-                            </div>
-                            <div class="text-center p-3">
-                                <h5 class="mb-0">Shogran</h5>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-6 wow fadeInUp" data-wow-delay="0.2s">
+                        <div class="dest-cine-card">
+                            <div class="dest-img-frame">
+                                <img class="dest-full-img" src="img/malamjabba.jpeg" alt="Malam Jabba">
+                                <div class="dest-overlay">
+                                    <div class="dest-meta">
+                                        <span><i class="fa fa-map-marker-alt me-1"></i>KPK</span>
+                                        <span><i class="fa fa-clock me-1"></i>1 Day</span>
+                                    </div>
+                                    <h5>Malam Jabba</h5>
+                                    <a href="destination.html" class="dest-explore-btn">Explore &rarr;</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6 col-6 wow fadeInUp" data-wow-delay="0.3s">
-                        <div class="package-item rounded-4 overflow-hidden shadow-sm h-100">
-                            <div class="overflow-hidden">
-                                <img class="img-fluid" src="img/malamjabba.jpeg" alt="Malam Jabba" style="width: 100%; height: 200px; object-fit: cover;">
-                            </div>
-                            <div class="d-flex border-bottom">
-                                <small class="flex-fill text-center border-end py-2"><i class="fa fa-map-marker-alt text-primary me-2"></i>KPK</small>
-                                <small class="flex-fill text-center py-2"><i class="fa fa-clock text-primary me-2"></i>1 Day</small>
-                            </div>
-                            <div class="text-center p-3">
-                                <h5 class="mb-0">Malam Jabba</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-6 wow fadeInUp" data-wow-delay="0.5s">
-                        <div class="package-item rounded-4 overflow-hidden shadow-sm h-100">
-                            <div class="overflow-hidden">
-                                <img class="img-fluid" src="img/shoran.jpg" alt="Sharan Forest" style="width: 100%; height: 200px; object-fit: cover;">
-                            </div>
-                            <div class="d-flex border-bottom">
-                                <small class="flex-fill text-center border-end py-2"><i class="fa fa-map-marker-alt text-primary me-2"></i>KPK</small>
-                                <small class="flex-fill text-center py-2"><i class="fa fa-clock text-primary me-2"></i>1 Day</small>
-                            </div>
-                            <div class="text-center p-3">
-                                <h5 class="mb-0">Sharan Forest</h5>
+                        <div class="dest-cine-card">
+                            <div class="dest-img-frame">
+                                <img class="dest-full-img" src="img/shoran.jpg" alt="Sharan Forest">
+                                <div class="dest-overlay">
+                                    <div class="dest-meta">
+                                        <span><i class="fa fa-map-marker-alt me-1"></i>KPK</span>
+                                        <span><i class="fa fa-clock me-1"></i>1 Day</span>
+                                    </div>
+                                    <h5>Sharan Forest</h5>
+                                    <a href="destination.html" class="dest-explore-btn">Explore &rarr;</a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6 col-6 wow fadeInUp" data-wow-delay="0.7s">
-                        <div class="package-item rounded-4 overflow-hidden shadow-sm h-100">
-                            <div class="overflow-hidden">
-                                <img class="img-fluid" src="img/mushkuri.jpeg" alt="Mushkpuri" style="width: 100%; height: 200px; object-fit: cover;">
-                            </div>
-                            <div class="d-flex border-bottom">
-                                <small class="flex-fill text-center border-end py-2"><i class="fa fa-map-marker-alt text-primary me-2"></i>Punjab</small>
-                                <small class="flex-fill text-center py-2"><i class="fa fa-clock text-primary me-2"></i>1 Day</small>
-                            </div>
-                            <div class="text-center p-3">
-                                <h5 class="mb-0">Mushkpuri</h5>
+                    <div class="col-lg-3 col-md-6 col-6 wow fadeInUp" data-wow-delay="0.4s">
+                        <div class="dest-cine-card">
+                            <div class="dest-img-frame">
+                                <img class="dest-full-img" src="img/mushkuri.jpeg" alt="Mushkpuri">
+                                <div class="dest-overlay">
+                                    <div class="dest-meta">
+                                        <span><i class="fa fa-map-marker-alt me-1"></i>Punjab</span>
+                                        <span><i class="fa fa-clock me-1"></i>1 Day</span>
+                                    </div>
+                                    <h5>Mushkpuri</h5>
+                                    <a href="destination.html" class="dest-explore-btn">Explore &rarr;</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            
+
             <!-- 3 Days Trips -->
             <div class="mb-5">
-                <h3 class="mb-4"><i class="fa fa-calendar-week text-primary me-2"></i> 3 Days Trips</h3>
+                <div class="trip-category-head">
+                    <div class="trip-cat-icon" style="background:linear-gradient(135deg,#FE8800,#c76800)"><i
+                            class="fa fa-calendar-week"></i></div>
+                    <h3>3 Days Trips</h3>
+                </div>
                 <div class="row g-4">
                     <div class="col-lg-3 col-md-6 col-6 wow fadeInUp" data-wow-delay="0.1s">
-                        <div class="package-item rounded-4 overflow-hidden shadow-sm h-100">
-                            <div class="overflow-hidden">
-                                <img class="img-fluid" src="img/sawat.jpeg" alt="Swat Kalam Valley" style="width: 100%; height: 200px; object-fit: cover;">
+                        <div class="dest-cine-card">
+                            <div class="dest-img-frame">
+                                <img class="dest-full-img" src="img/sawat.jpeg" alt="Swat Kalam Valley">
+                                <div class="dest-overlay">
+                                    <div class="dest-meta">
+                                        <span><i class="fa fa-map-marker-alt me-1"></i>KPK</span>
+                                        <span><i class="fa fa-clock me-1"></i>3 Days</span>
+                                    </div>
+                                    <h5>Swat Kalam</h5>
+                                    <a href="destination.html" class="dest-explore-btn">Explore &rarr;</a>
+                                </div>
                             </div>
-                            <div class="d-flex border-bottom">
-                                <small class="flex-fill text-center border-end py-2"><i class="fa fa-map-marker-alt text-primary me-2"></i>KPK</small>
-                                <small class="flex-fill text-center py-2"><i class="fa fa-clock text-primary me-2"></i>3 Days</small>
-                            </div>
-                            <div class="text-center p-3">
-                                <h5 class="mb-0">Swat Kalam</h5>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-6 wow fadeInUp" data-wow-delay="0.2s">
+                        <div class="dest-cine-card">
+                            <div class="dest-img-frame">
+                                <img class="dest-full-img" src="img/kashmir.jpeg" alt="Kashmir">
+                                <div class="dest-overlay">
+                                    <div class="dest-meta">
+                                        <span><i class="fa fa-map-marker-alt me-1"></i>AJK</span>
+                                        <span><i class="fa fa-clock me-1"></i>3 Days</span>
+                                    </div>
+                                    <h5>Kashmir</h5>
+                                    <a href="destination.html" class="dest-explore-btn">Explore &rarr;</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6 col-6 wow fadeInUp" data-wow-delay="0.3s">
-                        <div class="package-item rounded-4 overflow-hidden shadow-sm h-100">
-                            <div class="overflow-hidden">
-                                <img class="img-fluid" src="img/kashmir.jpeg" alt="Kashmir" style="width: 100%; height: 200px; object-fit: cover;">
-                            </div>
-                            <div class="d-flex border-bottom">
-                                <small class="flex-fill text-center border-end py-2"><i class="fa fa-map-marker-alt text-primary me-2"></i>AJK</small>
-                                <small class="flex-fill text-center py-2"><i class="fa fa-clock text-primary me-2"></i>3 Days</small>
-                            </div>
-                            <div class="text-center p-3">
-                                <h5 class="mb-0">Kashmir</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-6 wow fadeInUp" data-wow-delay="0.5s">
-                        <div class="package-item rounded-4 overflow-hidden shadow-sm h-100">
-                            <div class="overflow-hidden">
-                                <img class="img-fluid" src="img/naran.jpg" alt="Naran" style="width: 100%; height: 200px; object-fit: cover;">
-                            </div>
-                            <div class="d-flex border-bottom">
-                                <small class="flex-fill text-center border-end py-2"><i class="fa fa-map-marker-alt text-primary me-2"></i>KPK</small>
-                                <small class="flex-fill text-center py-2"><i class="fa fa-clock text-primary me-2"></i>3 Days</small>
-                            </div>
-                            <div class="text-center p-3">
-                                <h5 class="mb-0">Naran</h5>
+                        <div class="dest-cine-card">
+                            <div class="dest-img-frame">
+                                <img class="dest-full-img" src="img/naran.jpg" alt="Naran">
+                                <div class="dest-overlay">
+                                    <div class="dest-meta">
+                                        <span><i class="fa fa-map-marker-alt me-1"></i>KPK</span>
+                                        <span><i class="fa fa-clock me-1"></i>3 Days</span>
+                                    </div>
+                                    <h5>Naran</h5>
+                                    <a href="destination.html" class="dest-explore-btn">Explore &rarr;</a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6 col-6 wow fadeInUp" data-wow-delay="0.7s">
-                        <div class="package-item rounded-4 overflow-hidden shadow-sm h-100">
-                            <div class="overflow-hidden">
-                                <img class="img-fluid" src="img/Neelum-Vally.jpg" alt="Neelum Valley" style="width: 100%; height: 200px; object-fit: cover;">
-                            </div>
-                            <div class="d-flex border-bottom">
-                                <small class="flex-fill text-center border-end py-2"><i class="fa fa-map-marker-alt text-primary me-2"></i>AJK</small>
-                                <small class="flex-fill text-center py-2"><i class="fa fa-clock text-primary me-2"></i>3 Days</small>
-                            </div>
-                            <div class="text-center p-3">
-                                <h5 class="mb-0">Neelum Valley</h5>
+                    <div class="col-lg-3 col-md-6 col-6 wow fadeInUp" data-wow-delay="0.4s">
+                        <div class="dest-cine-card">
+                            <div class="dest-img-frame">
+                                <img class="dest-full-img" src="img/Neelum-Vally.jpg" alt="Neelum Valley">
+                                <div class="dest-overlay">
+                                    <div class="dest-meta">
+                                        <span><i class="fa fa-map-marker-alt me-1"></i>AJK</span>
+                                        <span><i class="fa fa-clock me-1"></i>3 Days</span>
+                                    </div>
+                                    <h5>Neelum Valley</h5>
+                                    <a href="destination.html" class="dest-explore-btn">Explore &rarr;</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            
-            <!-- Extended Trips Preview -->
+
+            <!-- View All CTA -->
             <div class="text-center mt-4">
                 <a href="destination.html" class="btn btn-primary rounded-pill py-3 px-5">View All Destinations</a>
             </div>
@@ -357,18 +1360,21 @@
     <!-- Destinations Preview End -->
 
     <!-- Contact Start -->
-    <div class="container-fluid py-5 bg-light">
+    <div class="container-fluid py-5" style="background:linear-gradient(180deg,#f0f8e8 0%,#f9fbf4 100%)">
         <div class="container">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
                 <h6 class="section-title bg-white text-center text-primary px-3">Contact Us</h6>
-                <h1 class="mb-5">Contact For Any Query</h1>
+                <h1 class="mb-2" style="font-family:'Playfair Display',serif">Contact For Any Query</h1>
+                <p class="text-muted mb-5">We&rsquo;d love to help plan your perfect journey</p>
             </div>
             <div class="row g-4">
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <h5>Get In Touch</h5>
-                    <p class="mb-4">Have questions about our tours? Reach out to us and we'll help you plan your perfect trip!</p>
+                    <p class="mb-4">Have questions about our tours? Reach out to us and we'll help you plan your perfect
+                        trip!</p>
                     <div class="d-flex align-items-center mb-4">
-                        <div class="d-flex align-items-center justify-content-center flex-shrink-0 bg-primary rounded-3" style="width: 50px; height: 50px;">
+                        <div class="d-flex align-items-center justify-content-center flex-shrink-0 bg-primary rounded-3 contact-icon-wrap"
+                            style="width: 50px; height: 50px;">
                             <i class="fa fa-map-marker-alt text-white"></i>
                         </div>
                         <div class="ms-3">
@@ -377,7 +1383,8 @@
                         </div>
                     </div>
                     <div class="d-flex align-items-center mb-4">
-                        <div class="d-flex align-items-center justify-content-center flex-shrink-0 bg-primary rounded-3" style="width: 50px; height: 50px;">
+                        <div class="d-flex align-items-center justify-content-center flex-shrink-0 bg-primary rounded-3 contact-icon-wrap"
+                            style="width: 50px; height: 50px;">
                             <i class="fa fa-phone-alt text-white"></i>
                         </div>
                         <div class="ms-3">
@@ -386,7 +1393,8 @@
                         </div>
                     </div>
                     <div class="d-flex align-items-center">
-                        <div class="d-flex align-items-center justify-content-center flex-shrink-0 bg-primary rounded-3" style="width: 50px; height: 50px;">
+                        <div class="d-flex align-items-center justify-content-center flex-shrink-0 bg-primary rounded-3 contact-icon-wrap"
+                            style="width: 50px; height: 50px;">
                             <i class="fa fa-envelope-open text-white"></i>
                         </div>
                         <div class="ms-3">
@@ -402,7 +1410,7 @@
                         tabindex="0"></iframe>
                 </div>
                 <div class="col-lg-4 col-md-12 wow fadeInUp" data-wow-delay="0.5s">
-                    <form class="bg-white p-4 rounded-4 shadow">
+                    <form class="contact-form-cine">
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <div class="form-floating">
@@ -412,24 +1420,28 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="email" class="form-control rounded-3" id="email" placeholder="Your Email">
+                                    <input type="email" class="form-control rounded-3" id="email"
+                                        placeholder="Your Email">
                                     <label for="email">Your Email</label>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control rounded-3" id="subject" placeholder="Subject">
+                                    <input type="text" class="form-control rounded-3" id="subject"
+                                        placeholder="Subject">
                                     <label for="subject">Subject</label>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <textarea class="form-control rounded-3" placeholder="Leave a message here" id="message" style="height: 100px"></textarea>
+                                    <textarea class="form-control rounded-3" placeholder="Leave a message here"
+                                        id="message" style="height: 100px"></textarea>
                                     <label for="message">Message</label>
                                 </div>
                             </div>
                             <div class="col-12">
-                                <button class="btn btn-primary w-100 py-3 rounded-pill" type="submit">Send Message</button>
+                                <button class="btn btn-primary w-100 py-3 rounded-pill" type="submit">Send
+                                    Message</button>
                             </div>
                         </div>
                     </form>
@@ -439,69 +1451,92 @@
     </div>
     <!-- Contact End -->
 
-    <!-- Footer Start -->
-    <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
-        <div class="container py-5">
-            <div class="row g-5">
-                <div class="col-lg-3 col-md-6">
-                    <h4 class="text-white mb-3">Company</h4>
-                    <a class="btn btn-link" href="about.html">About Us</a>
-                    <a class="btn btn-link" href="contact.html">Contact Us</a>
-                    <a class="btn btn-link" href="">Privacy Policy</a>
-                    <a class="btn btn-link" href="">Terms & Condition</a>
-                    <a class="btn btn-link" href="">FAQs & Help</a>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <h4 class="text-white mb-3">Contact</h4>
-                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>GT Road Haripur, Pakistan</p>
-                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+92 3350910377</p>
-                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>ubaidsaad55@gmail.com</p>
-                    <div class="d-flex pt-2">
-                        <a class="btn btn-outline-light btn-social rounded-circle" href="https://www.linkedin.com/in/saad-ubaid-74a6013ab"><i class="fab fa-linkedin-in"></i></a>
-                        <a class="btn btn-outline-light btn-social rounded-circle" href="https://www.instagram.com/travelwithsaadi.pk?igsh=NWtmemMyOGljcjRj"><i class="fab fa-instagram"></i></a>
-                        <a class="btn btn-outline-light btn-social rounded-circle" href="https://Api.whatsapp.com/send?phone=923350910377&text=Hello! I'm interested in your travel services."><i class="fab fa-whatsapp"></i></a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <h4 class="text-white mb-3">Quick Links</h4>
-                    <a class="btn btn-link" href="destination.html">Destinations</a>
-                    <a class="btn btn-link" href="service.html">Services</a>
-                    <a class="btn btn-link" href="">Tour Packages</a>
-                    <a class="btn btn-link" href="">Booking</a>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <h4 class="text-white mb-3">Newsletter</h4>
-                    <p>Subscribe for updates on new tours and special offers.</p>
-                    <div class="position-relative mx-auto" style="max-width: 400px;">
-                        <input class="form-control bg-transparent border-primary w-100 py-3 ps-4 pe-5 rounded-pill" type="text" placeholder="Your email">
-                        <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2 rounded-pill">SignUp</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="copyright">
-                <div class="row">
-                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                        &copy; <a class="border-bottom" href="#">Travel With Saadi</a>, All Right Reserved.
-                        Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>
-                    </div>
-                    <div class="col-md-6 text-center text-md-end">
-                        <div class="footer-menu">
-                            <a href="index.html">Home</a>
-                            <a href="">Cookies</a>
-                            <a href="">Help</a>
-                            <a href="">FAQs</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <!-- Footer Wave -->
+    <div class="wave-bottom" style="background:#ffffff">
+        <svg viewBox="0 0 1440 55" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,20 C480,65 960,-15 1440,25 L1440,55 L0,55 Z" fill="#0d1a04" />
+        </svg>
     </div>
-    <!-- Footer End -->
+
+    <!-- Beautiful Footer -->
+    <footer class="footer-beautiful pt-5">
+        <div class="container py-4">
+            <div class="row g-5">
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-logo-brand"><span>Travel</span> With Saadi</div>
+                    <div class="footer-tagline">Pakistan's Premier Travel Experience</div>
+                    <p style="font-size:0.88rem;color:rgba(255,255,255,0.55);max-width:300px;">Unforgettable journeys
+                        through the majestic northern areas of Pakistan since our founding.</p>
+                    <div class="d-flex gap-2 mt-3">
+                        <a href="https://www.linkedin.com/in/saad-ubaid-74a6013ab" class="footer-social-btn"
+                            aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/travelwithsaadi.pk?igsh=NWtmemMyOGljcjRj"
+                            class="footer-social-btn insta" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://Api.whatsapp.com/send?phone=923350910377&text=Hello! I'm interested in your travel services."
+                            class="footer-social-btn wa" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h5>Quick Links</h5>
+                    <div class="d-flex flex-column gap-1">
+                        <a href="index.html" class="footer-link"><i class="fa fa-chevron-right"></i>Home</a>
+                        <a href="about.html" class="footer-link"><i class="fa fa-chevron-right"></i>About Us</a>
+                        <a href="service.html" class="footer-link"><i class="fa fa-chevron-right"></i>Services</a>
+                        <a href="destination.html" class="footer-link"><i
+                                class="fa fa-chevron-right"></i>Destinations</a>
+                        <a href="contact.html" class="footer-link"><i class="fa fa-chevron-right"></i>Contact</a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5>Contact</h5>
+                    <div class="footer-contact-row">
+                        <div class="footer-contact-icon"><i class="fa fa-map-marker-alt"></i></div>
+                        <div class="footer-contact-text">GT Road Haripur, Pakistan</div>
+                    </div>
+                    <div class="footer-contact-row">
+                        <div class="footer-contact-icon"><i class="fa fa-phone-alt"></i></div>
+                        <div class="footer-contact-text">+92 3350910377</div>
+                    </div>
+                    <div class="footer-contact-row">
+                        <div class="footer-contact-icon"><i class="fa fa-envelope"></i></div>
+                        <div class="footer-contact-text">ubaidsaad55@gmail.com</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5>Newsletter</h5>
+                    <p style="font-size:0.85rem;color:rgba(255,255,255,0.55);">Get updates on new tours and exclusive
+                        offers.</p>
+                    <div class="newsletter-wrap">
+                        <input type="email" class="form-control mb-2" placeholder="Your email address">
+                        <button type="button" class="btn btn-primary w-100 rounded-pill">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+            <hr class="footer-divider">
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
+                <div class="footer-copyright">&copy; <a href="index.html">Travel With Saadi</a>, All Rights Reserved.
+                </div>
+                <div class="designed-by">Designed by <a href="https://husnain.rocks" target="_blank"
+                        rel="noopener">Husnain</a> &mdash; with ❤️</div>
+                <div class="footer-bottom-nav">
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <!-- Back to Top -->
-    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i
+            class="bi bi-arrow-up"></i></a>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://Api.whatsapp.com/send?phone=923350910377&text=Hello! I'm interested in booking a tour. Please provide details."
+        class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+        <span class="wa-tooltip">Book a Tour</span>
+    </a>
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
@@ -512,5 +1547,7 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    <script src="js/enhancements.js"></script>
 </body>
+
 </html>

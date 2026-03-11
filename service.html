@@ -5,68 +5,81 @@
     <meta charset="utf-8">
     <title>Travel With Saadi - Services</title>
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" name="viewport">
-    <meta content="Travel services offered by Travel With Saadi - family tours, private tours, honeymoon packages and more" name="description">
+    <meta
+        content="Travel services by Travel With Saadi - family tours, private tours, honeymoon packages and more in northern Pakistan"
+        name="description">
     <meta content="services, travel services, Pakistan tours, family tours, group tours" name="keywords">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://code.jquery.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; img-src 'self' data: https:; font-src 'self' data: https://fonts.gstatic.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; connect-src 'self'; frame-src https://www.google.com https://www.google.com/maps; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'; upgrade-insecure-requests">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' https://code.jquery.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; img-src 'self' data: https:; font-src 'self' data: https://fonts.gstatic.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; connect-src 'self'; frame-src https://www.google.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'; upgrade-insecure-requests">
     <meta name="referrer" content="strict-origin-when-cross-origin">
-
-    <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
-
-    <!-- Google Web Fonts -->
+    <link href="img/walking-tour.png" rel="icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
-
-    <!-- Icon Font Stylesheet -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&family=Playfair+Display:wght@400;700;900&display=swap"
+        rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-
-    <!-- Libraries Stylesheet -->
     <link href="lib/animate/animate.min.css" rel="stylesheet">
-
-    <!-- Customized Bootstrap Stylesheet -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+    <link href="css/enhancements.css" rel="stylesheet">
 </head>
 
 <body>
-    <!-- Spinner Start -->
-    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+    <!-- Page Transition Overlay -->
+    <div id="page-transition"></div>
+    <!-- Scroll Progress Bar -->
+    <div id="scroll-progress"></div>
+    <!-- Cursor Glow -->
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+    <!-- Spinner -->
+    <div id="spinner"
+        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
         <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
             <span class="sr-only">Loading...</span>
         </div>
     </div>
-    <!-- Spinner End -->
 
-    <!-- Topbar Start -->
+    <!-- Topbar -->
     <div class="container-fluid bg-dark px-3 px-sm-5 d-none d-lg-block">
         <div class="row gx-0">
             <div class="col-lg-8 text-center text-lg-start mb-2 mb-lg-0">
-                <div class="d-inline-flex align-items-center" style="height: 45px;">
-                    <small class="me-3 text-light"><i class="fa fa-map-marker-alt me-2"></i>GT Road Haripur, Pakistan</small>
+                <div class="d-inline-flex align-items-center" style="height:45px;">
+                    <small class="me-3 text-light"><i class="fa fa-map-marker-alt me-2"></i>GT Road Haripur,
+                        Pakistan</small>
                     <small class="me-3 text-light"><i class="fa fa-phone-alt me-2"></i>+92 3350910377</small>
                     <small class="text-light"><i class="fa fa-envelope-open me-2"></i>ubaidsaad55@gmail.com</small>
                 </div>
             </div>
             <div class="col-lg-4 text-center text-lg-end">
-                <div class="d-inline-flex align-items-center" style="height: 45px;">
-                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://www.linkedin.com/in/saad-ubaid-74a6013ab"><i class="fab fa-linkedin-in fw-normal"></i></a>
-                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://www.instagram.com/travelwithsaadi.pk?igsh=NWtmemMyOGljcjRj"><i class="fab fa-instagram fw-normal"></i></a>
-                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle" href="https://Api.whatsapp.com/send?phone=923350910377&text=Hello! I'm interested in your travel services. Please provide more information."><i class="fab fa-whatsapp fw-normal"></i></a>
+                <div class="d-inline-flex align-items-center" style="height:45px;">
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2"
+                        href="https://www.linkedin.com/in/saad-ubaid-74a6013ab"><i
+                            class="fab fa-linkedin-in fw-normal"></i></a>
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2"
+                        href="https://www.instagram.com/travelwithsaadi.pk?igsh=NWtmemMyOGljcjRj"><i
+                            class="fab fa-instagram fw-normal"></i></a>
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle"
+                        href="https://Api.whatsapp.com/send?phone=923350910377&text=Hello! I'm interested in your travel services."><i
+                            class="fab fa-whatsapp fw-normal"></i></a>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Topbar End -->
 
-    <!-- Navbar Start -->
+    <!-- Navbar -->
     <div class="container-fluid position-relative p-0">
         <nav class="navbar navbar-expand-lg navbar-light px-3 px-lg-5 py-3 py-lg-0">
-            <a href="index.html" class="navbar-brand p-0">
-                <h1 class="text-primary m-0"><i class="fa fa-map-marker-alt me-2 me-lg-3"></i>Travel With Saadi</h1>
+            <a href="index.html" class="navbar-brand p-0 brand-logo-link">
+                <div class="logo-circle-wrap">
+                    <img src="img/logo.png" alt="Travel With Saadi Logo" class="logo-img">
+                </div>
+                <div class="logo-text-wrap ms-2">
+                    <span class="logo-travel">Travel</span>
+                    <span class="logo-saadi">with Saadi</span>
+                </div>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                 <span class="fa fa-bars"></span>
@@ -79,16 +92,19 @@
                     <a href="destination.html" class="nav-item nav-link">Destination</a>
                     <a href="contact.html" class="nav-item nav-link">Contact</a>
                 </div>
-                <a href="https://Api.whatsapp.com/send?phone=923350910377&text=Hello! I'm interested in booking a tour. Please provide details." class="btn btn-primary rounded-pill py-2 px-4">Book Now</a>
+                <a href="https://Api.whatsapp.com/send?phone=923350910377&text=Hello! I'm interested in booking a tour."
+                    class="btn btn-primary rounded-pill py-2 px-4">Book Now</a>
             </div>
         </nav>
 
-        <!-- Hero Header Start -->
-        <div class="container-fluid bg-primary py-5 mb-5 hero-header">
+        <!-- Hero Header -->
+        <div class="container-fluid py-5 mb-5 hero-header">
             <div class="container py-5">
                 <div class="row justify-content-center py-5">
                     <div class="col-lg-10 pt-lg-5 mt-lg-5 text-center">
-                        <h1 class="display-3 text-white animated slideInDown">Our Services</h1>
+                        <p class="hero-badge animated slideInDown"><i class="fa fa-concierge-bell me-2"></i>What We
+                            Offer</p>
+                        <h1 class="display-3 animated slideInDown mb-3">Our Services</h1>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb justify-content-center">
                                 <li class="breadcrumb-item"><a href="index.html" class="text-white">Home</a></li>
@@ -99,151 +115,178 @@
                 </div>
             </div>
         </div>
-        <!-- Hero Header End -->
     </div>
-    <!-- Navbar End -->
 
-    <!-- Service Start -->
-    <div class="container-fluid py-5">
+    <!-- Services Section -->
+    <div class="container-fluid py-5" style="background:linear-gradient(180deg,#f8fcf0 0%,#ffffff 100%)">
         <div class="container">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
                 <h6 class="section-title bg-white text-center text-primary px-3">Services</h6>
-                <h1 class="mb-5">What We Offer</h1>
+                <h1 class="mb-2" style="font-family:'Playfair Display',serif">What We Offer</h1>
+                <p class="text-muted mb-5">Tailored experiences for every kind of traveler</p>
             </div>
             <div class="row g-4">
                 <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="service-item rounded-4 p-4 text-center shadow-sm h-100">
-                        <i class="fa fa-3x fa-users text-primary mb-4"></i>
+                    <div class="svc-cine-card">
+                        <div class="svc-icon-wrap"><i class="fa fa-users"></i></div>
                         <h5>Family Tours</h5>
-                        <p class="mb-0">Create lasting memories with your family in the beautiful northern areas of Pakistan</p>
+                        <p>Create lasting memories with your family in the beautiful northern areas of Pakistan</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="svc-cine-card">
+                        <div class="svc-icon-wrap"><i class="fa fa-user-tie"></i></div>
+                        <h5>Private Tours</h5>
+                        <p>Exclusive personalized tours designed just for you and your companions</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="service-item rounded-4 p-4 text-center shadow-sm h-100">
-                        <i class="fa fa-3x fa-user-tie text-primary mb-4"></i>
-                        <h5>Private Tours</h5>
-                        <p class="mb-0">Exclusive tours designed specifically for you and your companions</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="service-item rounded-4 p-4 text-center shadow-sm h-100">
-                        <i class="fa fa-3x fa-heart text-primary mb-4"></i>
+                    <div class="svc-cine-card">
+                        <div class="svc-icon-wrap"><i class="fa fa-heart"></i></div>
                         <h5>Honeymoon</h5>
-                        <p class="mb-0">Romantic escapes to the most picturesque destinations for newlyweds</p>
+                        <p>Romantic escapes to the most picturesque destinations for newlyweds</p>
                     </div>
                 </div>
-                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
-                    <div class="service-item rounded-4 p-4 text-center shadow-sm h-100">
-                        <i class="fa fa-3x fa-users-cog text-primary mb-4"></i>
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.4s">
+                    <div class="svc-cine-card">
+                        <div class="svc-icon-wrap"><i class="fa fa-users-cog"></i></div>
                         <h5>Group Tours</h5>
-                        <p class="mb-0">Join our group tours and explore with like-minded travelers</p>
+                        <p>Join our group tours and explore with like-minded travelers</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="service-item rounded-4 p-4 text-center shadow-sm h-100">
-                        <i class="fa fa-3x fa-briefcase text-primary mb-4"></i>
+                    <div class="svc-cine-card">
+                        <div class="svc-icon-wrap"><i class="fa fa-briefcase"></i></div>
                         <h5>Corporate Tours</h5>
-                        <p class="mb-0">Team building and corporate retreats in serene mountain locations</p>
+                        <p>Team building and corporate retreats in serene mountain locations</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="svc-cine-card">
+                        <div class="svc-icon-wrap"><i class="fa fa-route"></i></div>
+                        <h5>Customized Tours</h5>
+                        <p>Tailor-made itineraries based on your preferences and budget</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="service-item rounded-4 p-4 text-center shadow-sm h-100">
-                        <i class="fa fa-3x fa-route text-primary mb-4"></i>
-                        <h5>Customized Tours</h5>
-                        <p class="mb-0">Tailor-made itineraries based on your preferences and budget</p>
+                    <div class="svc-cine-card">
+                        <div class="svc-icon-wrap"><i class="fa fa-graduation-cap"></i></div>
+                        <h5>University &amp; College Tours</h5>
+                        <p>Educational trips designed for students combining learning and fun</p>
                     </div>
                 </div>
-                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="service-item rounded-4 p-4 text-center shadow-sm h-100">
-                        <i class="fa fa-3x fa-graduation-cap text-primary mb-4"></i>
-                        <h5>University & College Tours</h5>
-                        <p class="mb-0">Educational trips designed for students with learning and fun combined</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
-                    <div class="service-item rounded-4 p-4 text-center shadow-sm h-100">
-                        <i class="fa fa-3x fa-mountain text-primary mb-4"></i>
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.4s">
+                    <div class="svc-cine-card">
+                        <div class="svc-icon-wrap"><i class="fa fa-mountain"></i></div>
                         <h5>Adventure Tours</h5>
-                        <p class="mb-0">Trekking, hiking, and adventure activities for thrill-seekers</p>
+                        <p>Trekking, hiking, and adventure activities for thrill-seekers</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <!-- Service End -->
 
-    <!-- Footer Start -->
-    <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
-        <div class="container py-5">
-            <div class="row g-5">
-                <div class="col-lg-3 col-md-6">
-                    <h4 class="text-white mb-3">Company</h4>
-                    <a class="btn btn-link" href="about.html">About Us</a>
-                    <a class="btn btn-link" href="contact.html">Contact Us</a>
-                    <a class="btn btn-link" href="">Privacy Policy</a>
-                    <a class="btn btn-link" href="">Terms & Condition</a>
-                    <a class="btn btn-link" href="">FAQs & Help</a>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <h4 class="text-white mb-3">Contact</h4>
-                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>GT Road Haripur, Pakistan</p>
-                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+92 3350910377</p>
-                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>ubaidsaad55@gmail.com</p>
-                    <div class="d-flex pt-2">
-                        <a class="btn btn-outline-light btn-social rounded-circle" href="https://www.linkedin.com/in/saad-ubaid-74a6013ab"><i class="fab fa-linkedin-in"></i></a>
-                        <a class="btn btn-outline-light btn-social rounded-circle" href="https://www.instagram.com/travelwithsaadi.pk?igsh=NWtmemMyOGljcjRj"><i class="fab fa-instagram"></i></a>
-                        <a class="btn btn-outline-light btn-social rounded-circle" href="https://Api.whatsapp.com/send?phone=923350910377&text=Hello! I'm interested in your travel services."><i class="fab fa-whatsapp"></i></a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <h4 class="text-white mb-3">Quick Links</h4>
-                    <a class="btn btn-link" href="destination.html">Destinations</a>
-                    <a class="btn btn-link" href="service.html">Services</a>
-                    <a class="btn btn-link" href="">Tour Packages</a>
-                    <a class="btn btn-link" href="">Booking</a>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <h4 class="text-white mb-3">Newsletter</h4>
-                    <p>Subscribe for updates on new tours and special offers.</p>
-                    <div class="position-relative mx-auto" style="max-width: 400px;">
-                        <input class="form-control bg-transparent border-primary w-100 py-3 ps-4 pe-5 rounded-pill" type="text" placeholder="Your email">
-                        <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2 rounded-pill">SignUp</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="copyright">
-                <div class="row">
-                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                        &copy; <a class="border-bottom" href="#">Travel With Saadi</a>, All Right Reserved.
-                        Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>
-                    </div>
-                    <div class="col-md-6 text-center text-md-end">
-                        <div class="footer-menu">
-                            <a href="index.html">Home</a>
-                            <a href="">Cookies</a>
-                            <a href="">Help</a>
-                            <a href="">FAQs</a>
-                        </div>
-                    </div>
-                </div>
+            <!-- CTA -->
+            <div class="text-center mt-5 wow fadeInUp" data-wow-delay="0.1s">
+                <p class="text-muted mb-3">Ready to start your journey?</p>
+                <a href="contact.html" class="btn btn-primary rounded-pill py-3 px-5 me-3">Book Now</a>
+                <a href="destination.html" class="btn btn-outline-primary rounded-pill py-3 px-5">View Destinations</a>
             </div>
         </div>
     </div>
-    <!-- Footer End -->
+
+    <!-- Footer Wave -->
+    <div class="wave-bottom" style="background:#ffffff">
+        <svg viewBox="0 0 1440 55" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,20 C480,65 960,-15 1440,25 L1440,55 L0,55 Z" fill="#0d1a04" />
+        </svg>
+    </div>
+
+    <!-- Beautiful Footer -->
+    <footer class="footer-beautiful pt-5">
+        <div class="container py-4">
+            <div class="row g-5">
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-logo-brand"><span>Travel</span> With Saadi</div>
+                    <div class="footer-tagline">Pakistan's Premier Travel Experience</div>
+                    <p style="font-size:0.88rem;color:rgba(255,255,255,0.55);max-width:280px;">Unforgettable journeys
+                        through the majestic northern areas of Pakistan.</p>
+                    <div class="d-flex gap-2 mt-3">
+                        <a href="https://www.linkedin.com/in/saad-ubaid-74a6013ab" class="footer-social-btn"
+                            aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/travelwithsaadi.pk?igsh=NWtmemMyOGljcjRj"
+                            class="footer-social-btn insta" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://Api.whatsapp.com/send?phone=923350910377&text=Hello!"
+                            class="footer-social-btn wa" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h5>Quick Links</h5>
+                    <div class="d-flex flex-column gap-1">
+                        <a href="index.html" class="footer-link"><i class="fa fa-chevron-right"></i>Home</a>
+                        <a href="about.html" class="footer-link"><i class="fa fa-chevron-right"></i>About Us</a>
+                        <a href="service.html" class="footer-link"><i class="fa fa-chevron-right"></i>Services</a>
+                        <a href="destination.html" class="footer-link"><i
+                                class="fa fa-chevron-right"></i>Destinations</a>
+                        <a href="contact.html" class="footer-link"><i class="fa fa-chevron-right"></i>Contact</a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5>Contact</h5>
+                    <div class="footer-contact-row">
+                        <div class="footer-contact-icon"><i class="fa fa-map-marker-alt"></i></div>
+                        <div class="footer-contact-text">GT Road Haripur, Pakistan</div>
+                    </div>
+                    <div class="footer-contact-row">
+                        <div class="footer-contact-icon"><i class="fa fa-phone-alt"></i></div>
+                        <div class="footer-contact-text">+92 3350910377</div>
+                    </div>
+                    <div class="footer-contact-row">
+                        <div class="footer-contact-icon"><i class="fa fa-envelope"></i></div>
+                        <div class="footer-contact-text">ubaidsaad55@gmail.com</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5>Newsletter</h5>
+                    <p style="font-size:0.85rem;color:rgba(255,255,255,0.55);">Get updates on new tours and exclusive
+                        offers.</p>
+                    <div class="newsletter-wrap">
+                        <input type="email" class="form-control mb-2" placeholder="Your email address">
+                        <button type="button" class="btn btn-primary w-100 rounded-pill">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+            <hr class="footer-divider">
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
+                <div class="footer-copyright">&copy; <a href="index.html">Travel With Saadi</a>, All Rights Reserved.
+                </div>
+                <div class="designed-by">Designed by <a href="https://husnain.rocks" target="_blank"
+                        rel="noopener">Husnain</a> &mdash; with ❤️</div>
+                <div class="footer-bottom-nav">
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <!-- Back to Top -->
-    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i
+            class="bi bi-arrow-up"></i></a>
 
-    <!-- JavaScript Libraries -->
+    <!-- WhatsApp Float -->
+    <a href="https://Api.whatsapp.com/send?phone=923350910377&text=Hello! I'm interested in booking a tour."
+        class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+        <span class="wa-tooltip">Book a Tour</span>
+    </a>
+
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="lib/wow/wow.min.js"></script>
     <script src="lib/easing/easing.min.js"></script>
     <script src="lib/waypoints/waypoints.min.js"></script>
-
-    <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    <script src="js/enhancements.js"></script>
 </body>
+
 </html>
