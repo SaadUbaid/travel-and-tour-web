@@ -12,7 +12,7 @@ import {
 } from "lucide-react";
 import { trips, photo, regions, contact } from "../data";
 import { useTravel } from "../state";
-import { WhatsAppIcon, InstagramIcon } from "./UI";
+import { WhatsAppIcon, InstagramIcon, GithubIcon } from "./UI";
 type Panel = "Destinations" | "Tours";
 const names: Panel[] = ["Destinations", "Tours"];
 export function Brand() {
@@ -386,8 +386,116 @@ export function Header() {
     </>
   );
 }
+function CreatorProfileDialog({ onClose }: { onClose: () => void }) {
+  const dialog = useRef<HTMLDialogElement>(null);
+  const [section, setSection] = useState<"profile" | "connect">("profile");
+
+  useEffect(() => {
+    if (!dialog.current?.open) dialog.current?.showModal();
+  }, []);
+
+  const close = () => dialog.current?.close();
+
+  return (
+    <dialog
+      ref={dialog}
+      className="creator-dialog"
+      aria-labelledby="creator-dialog-title"
+      onClose={onClose}
+      onClick={(event) => {
+        if (event.target === event.currentTarget) close();
+      }}
+    >
+      <article className="creator-profile">
+        <div
+          className="creator-profile-cover"
+          style={{
+            backgroundImage: `linear-gradient(180deg, rgba(7, 46, 29, 0.08), rgba(7, 46, 29, 0.82)), url("${photo("hunza", true)}")`,
+          }}
+          aria-hidden="true"
+        />
+        <button
+          type="button"
+          className="creator-dialog-close"
+          onClick={close}
+          aria-label="Close designer profile"
+          autoFocus
+        >
+          <X size={18} />
+        </button>
+        <header className="creator-profile-heading">
+          <div className="creator-profile-mark" aria-hidden="true">H</div>
+          <span className="creator-profile-role">Website designer & creator</span>
+          <h2 id="creator-dialog-title">Husnain</h2>
+        </header>
+        <div className="creator-profile-content">
+          <div className="creator-profile-tabs" aria-label="Designer profile sections">
+            <button
+              type="button"
+              aria-pressed={section === "profile"}
+              onClick={() => setSection("profile")}
+            >
+              Profile
+            </button>
+            <button
+              type="button"
+              aria-pressed={section === "connect"}
+              onClick={() => setSection("connect")}
+            >
+              Connect
+            </button>
+          </div>
+          {section === "profile" ? (
+            <section className="creator-profile-panel" aria-label="Designer profile">
+              <span className="creator-panel-kicker">About the designer</span>
+              <p>
+                I’m Husnain, the designer and creator behind this website. I
+                built it to share the places and journeys that make Pakistan
+                special.
+              </p>
+              <button
+                type="button"
+                className="creator-connect-cta"
+                onClick={() => setSection("connect")}
+              >
+                Find me online <ArrowUpRight size={16} />
+              </button>
+            </section>
+          ) : (
+            <section className="creator-profile-panel" aria-label="Contact the designer">
+              <span className="creator-panel-kicker">Find me online</span>
+              <p>Follow my work or get in touch through either profile.</p>
+              <div className="creator-profile-socials">
+                <a
+                  href="https://github.com/thehusnain"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <GithubIcon size={19} />
+                  <span><strong>GitHub</strong><small>@thehusnain</small></span>
+                  <ArrowUpRight size={15} />
+                </a>
+                <a
+                  href="https://www.instagram.com/thehusnainhere/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <InstagramIcon size={19} />
+                  <span><strong>Instagram</strong><small>@thehusnainhere</small></span>
+                  <ArrowUpRight size={15} />
+                </a>
+              </div>
+            </section>
+          )}
+        </div>
+      </article>
+    </dialog>
+  );
+}
+
 export function Footer() {
   const { notice } = useTravel();
+  const [creatorOpen, setCreatorOpen] = useState(false);
   return (
     <>
       <footer className="site-footer">
@@ -474,9 +582,24 @@ export function Footer() {
 
         <div className="wrap footer-bottom">
           <small>© {new Date().getFullYear()} Travel With Saadi. All rights reserved.</small>
+          <div className="footer-creator">
+            <button
+              type="button"
+              className="footer-creator-trigger"
+              aria-haspopup="dialog"
+              aria-expanded={creatorOpen}
+              onClick={() => setCreatorOpen(true)}
+            >
+              About the designer <ArrowUpRight size={15} />
+            </button>
+          </div>
           <span className="footer-tagline">Crafted for memorable journeys across Pakistan</span>
         </div>
       </footer>
+
+      {creatorOpen && (
+        <CreatorProfileDialog onClose={() => setCreatorOpen(false)} />
+      )}
 
       <div className={`toast ${notice ? "show" : ""}`} role="status">
         {notice}

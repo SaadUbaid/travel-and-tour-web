@@ -64,6 +64,40 @@ for (const width of [320, 768, 1024, 1440])
       expect(documentWidth, path).toBeLessThanOrEqual(width + 1);
     }
   });
+for (const width of [320, 360, 1440])
+  test(`designer profile opens accessibly and fits ${width}px`, async ({ page }) => {
+    await page.setViewportSize({ width, height: 900 });
+    await page.goto("/");
+    const trigger = page.getByRole("button", { name: "About the designer" });
+    await expect(trigger).toHaveAttribute("aria-expanded", "false");
+    await trigger.click();
+    const dialog = page.getByRole("dialog", { name: "Husnain" });
+    await expect(dialog).toBeVisible();
+    await expect(dialog).toContainText("About the designer");
+    await expect(dialog).toContainText(
+      "I built it to share the places and journeys that make Pakistan special.",
+    );
+    await dialog.getByRole("button", { name: "Connect" }).click();
+    await expect(
+      dialog.locator('a[href="https://github.com/thehusnain"]'),
+    ).toContainText("@thehusnain");
+    await expect(
+      dialog.locator(
+        'a[href="https://www.instagram.com/thehusnainhere/"]',
+      ),
+    ).toContainText("@thehusnainhere");
+    const documentWidth = await page.evaluate(
+      () => document.documentElement.scrollWidth,
+    );
+    expect(documentWidth).toBeLessThanOrEqual(width + 1);
+    const accessibility = await new AxeBuilder({ page })
+      .include(".creator-profile")
+      .analyze();
+    expect(accessibility.violations).toEqual([]);
+    await page.keyboard.press("Escape");
+    await expect(dialog).not.toBeVisible();
+    await expect(trigger).toBeFocused();
+  });
 test("Atlas uses one morphing panel and keyboard dismissal", async ({
   page,
 }) => {
