@@ -1,0 +1,50 @@
+{
+  "name": "travel-and-tour-web",
+  "version": "3.0.0",
+  "description": "Travel With Saadi \u2014 React and TypeScript travel website with authentic Pakistan photography, cinematic GSAP stories, Atlas navigation, and an animated trip planner",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview --host 127.0.0.1",
+    "test": "npm run check && npm run test:dom",
+    "format": "prettier --write \"*.html\" \"src/**/*.{ts,tsx,css}\" \"tests/*.js\" \"scripts/*.mjs\" \"*.{json,js}\" README.md",
+    "screenshots": "node scripts/preview.mjs",
+    "typecheck": "tsc --noEmit",
+    "check": "tsc --noEmit && node scripts/check-assets.mjs",
+    "test:dom": "vite build --ssr tests/dom-entry.ts --outDir .test-dom && node .test-dom/dom-entry.js",
+    "test:browser": "playwright test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SaadUbaid/travel-and-tour-web.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "SEE LICENSE IN LICENSE.txt",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/SaadUbaid/travel-and-tour-web/issues"
+  },
+  "homepage": "https://github.com/SaadUbaid/travel-and-tour-web#readme",
+  "dependencies": {
+    "@fontsource/instrument-serif": "^5.3.0",
+    "@fontsource/inter": "^5.3.0",
+    "gsap": "^3.15.0",
+    "lucide-react": "^1.51.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "react-router-dom": "^7.18.4"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
+    "@playwright/test": "^1.63.0",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.1",
+    "happy-dom": "^20.14.6",
+    "prettier": "^3.9.9",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.2"
+  },
+  "private": true
+}
