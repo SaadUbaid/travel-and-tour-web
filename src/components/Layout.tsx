@@ -20,15 +20,11 @@ export function Brand() {
     <Link to="/" className="brand" aria-label="Travel With Saadi home">
       <img
         className="brand-mark"
-        src={`${import.meta.env.BASE_URL}brand/saadi-mark.svg`}
+        src={`${import.meta.env.BASE_URL}brand/saadi-logo.png`}
         alt=""
-        width="48"
-        height="48"
+        width="74"
+        height="74"
       />
-      <span className="brand-wordmark">
-        <small>TRAVEL WITH</small>
-        <strong>SAADI</strong>
-      </span>
     </Link>
   );
 }

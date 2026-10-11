@@ -431,9 +431,13 @@ h2[tabindex]:focus {
 .brand {
   display: flex;
   align-items: center;
-  gap: 9px;
-  width: 160px;
+  width: 80px;
   flex-shrink: 0;
+}
+.brand-mark {
+  width: 74px;
+  height: 74px;
+  object-fit: contain;
 }
 .brand > span {
   display: flex;
@@ -3380,7 +3384,7 @@ h2[tabindex]:focus {
     gap: 17px;
   }
   .brand {
-    width: 140px;
+    width: 80px;
   }
   .featured-grid {
     gap: 20px;
@@ -3500,6 +3504,10 @@ h2[tabindex]:focus {
   }
   .brand {
     width: auto;
+  }
+  .brand-mark {
+    width: 60px;
+    height: 60px;
   }
   .brand strong {
     font-size: 36px;
