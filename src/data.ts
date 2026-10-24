@@ -337,7 +337,7 @@ export const regions = [
 export const contact = {
   phone: "+92 335 0910377",
   whatsapp: "923350910377",
-  email: "travelwithsaadi@gmail.com",
+  email: "travelwithsaadi.social@gmail.com",
   address: "GT Road, Haripur, Pakistan",
 };
 
