@@ -56,10 +56,10 @@ Form details stay in React memory while navigating back and forth and are cleare
 
 ## Motion and design
 
-The existing fonts, palette, image assets/crops, video loop, GSAP scene timeline, menu transitions, ticket tilt values, and CSS keyframes were retained. `src/flow.css` supplies the layouts for new controls/pages and responsive arrangements using the existing visual system. `src/components/BookingTicket.tsx` extracts the original ticket markup and pointer motion for reuse. Motion remains optional through the existing pause control and reduced-motion preference.
+The existing brand, fonts, image assets, hero film, destination stories, and booking flow are retained. `src/enhancements.css` adds lake-blue and warm-orange section colors, clearer controls, mobile touch targets, and scroll-revealed headings. The home page's destination window opens from a line into a pill, with manual Hunza, Skardu, Swat, and Kashmir previews and matching destination/tour links. Hunza reuses the local Attabad film. The window stacks and opens vertically on phones, and its replay collapses then reopens it. The hero's pause control and system reduced-motion preference apply throughout. See `DESIGN.md` for the refinement guidelines.
 
 See `FLOW-UPDATE.md` for the section moves and file-level explanation. See `PHOTOGRAPHY.md` for image licences. The original HTML Codex attribution and `LICENSE.txt` are retained.
 
 ## Checks for this update
 
-Production TypeScript/Vite build completed. New mobile layout rules were reviewed in source. Full automated tests and rendered browser checks were not run, at the user's request and because supported browser preview was unavailable. The existing `tests/` folder is the previous release's suite; its old flow expectations are not certification of this update.
+The production TypeScript/Vite build, asset validation, and seven DOM integration checks pass. Eleven browser checks verified route layouts and image decoding at widths from 320px to 1920px; four WCAG A/AA accessibility scans pass. Additional browser interaction checks cover destination selection, keyboard use, replay, resize interruption, video pausing, reduced motion, and heading spacing. Desktop and phone layouts were also visually reviewed. Some unrelated browser tests still contain older navigation/booking expectations; the entire legacy browser suite was not run.

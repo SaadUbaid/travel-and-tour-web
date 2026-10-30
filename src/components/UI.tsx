@@ -19,11 +19,13 @@ export function Reveal({
   const { paused } = useTravel();
   useEffect(() => {
     const el = ref.current;
-    if (!el || paused) return;
+    if (!el || paused || typeof IntersectionObserver === "undefined") return;
+    el.classList.add("reveal-pending");
     const o = new IntersectionObserver(
       (entries) =>
         entries.forEach((e) => {
           if (e.isIntersecting) {
+            el.classList.remove("reveal-pending");
             el.classList.add("revealed");
             o.unobserve(el);
           }
@@ -31,7 +33,16 @@ export function Reveal({
       { threshold: 0.08 },
     );
     o.observe(el);
-    return () => o.disconnect();
+    const showOnFocus = () => {
+      el.classList.remove("reveal-pending");
+      el.classList.add("revealed");
+    };
+    el.addEventListener("focusin", showOnFocus);
+    return () => {
+      o.disconnect();
+      el.classList.remove("reveal-pending");
+      el.removeEventListener("focusin", showOnFocus);
+    };
   }, [paused]);
   return (
     <div
@@ -41,6 +52,45 @@ export function Reveal({
     >
       {children}
     </div>
+  );
+}
+export function ScrollText({ children }: { children: string }) {
+  const ref = useRef<HTMLHeadingElement>(null);
+  const { paused } = useTravel();
+  useEffect(() => {
+    const heading = ref.current;
+    if (!heading || paused || typeof IntersectionObserver === "undefined") return;
+    const observer = new IntersectionObserver(
+      ([entry]) => heading.classList.toggle("text-in-view", entry.isIntersecting),
+      { threshold: 0.15, rootMargin: "-160px 0px -8% 0px" },
+    );
+    heading.dataset.scrollFade = "true";
+    observer.observe(heading);
+    return () => {
+      observer.disconnect();
+      delete heading.dataset.scrollFade;
+      heading.classList.remove("text-in-view");
+    };
+  }, [paused, children]);
+  const words = children.split(" ");
+  return (
+    <h2 ref={ref} className="scroll-text" aria-label={children}>
+      {words.map((word, index) => (
+        <span
+          className="scroll-word-mask"
+          key={`${word}-${index}`}
+          aria-hidden="true"
+        >
+          <span
+            className="scroll-word"
+            style={{ "--word-delay": `${index * 65}ms` } as CSSProperties}
+          >
+            {word}
+            {index < words.length - 1 ? "\u00a0" : ""}
+          </span>
+        </span>
+      ))}
+    </h2>
   );
 }
 export function WhatsAppIcon({

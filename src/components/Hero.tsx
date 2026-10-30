@@ -1,10 +1,11 @@
 import { useEffect, useRef, useState } from "react";
-import { ArrowDown, MapPin } from "lucide-react";
+import { ArrowDown, ArrowUpRight, MapPin, Pause, Play } from "lucide-react";
+import { Link } from "react-router-dom";
 import { useTravel } from "../state";
 export default function Hero() {
   const video = useRef<HTMLVideoElement>(null);
   const region = useRef<HTMLElement>(null);
-  const { paused } = useTravel();
+  const { paused, toggleMotion } = useTravel();
   const [failed, setFailed] = useState(false);
   const [ready, setReady] = useState(false);
   const [mobileFilm] = useState(() => matchMedia("(max-width: 680px)").matches);
@@ -112,8 +113,17 @@ export default function Hero() {
           Unforgettable <span className="text-accent">Northern Tours.</span>
         </h1>
         <p className="hero-reveal">
-          Customized family and group tours across Hunza, Skardu, Swat, Naran & Kashmir. Planned personally with Saadi.
+          Customized family and group tours across Hunza, Skardu, Swat, Naran &
+          Kashmir. Planned personally with Saadi.
         </p>
+        <div className="hero-actions hero-reveal">
+          <Link className="button" to="/tours">
+            Find your tour <ArrowUpRight size={18} aria-hidden="true" />
+          </Link>
+          <Link className="hero-contact-link" to="/contact">
+            Plan with Saadi <ArrowUpRight size={16} aria-hidden="true" />
+          </Link>
+        </div>
       </div>
       <div className="hero-bottom">
         <div className="film-caption">
@@ -129,17 +139,32 @@ export default function Hero() {
             </small>
           </span>
         </div>
-        <button
-          className="scroll-cue"
-          onClick={() =>
-            document
-              .getElementById("journeys")
-              ?.scrollIntoView({ behavior: paused ? "instant" : "smooth" })
-          }
-        >
-          <span>Explore destinations</span>
-          <ArrowDown size={18} />
-        </button>
+        <div className="hero-bottom-actions">
+          <button
+            className="film-control"
+            onClick={toggleMotion}
+            aria-pressed={paused}
+            aria-label={paused ? "Resume animations" : "Pause animations"}
+          >
+            {paused ? (
+              <Play size={14} aria-hidden="true" />
+            ) : (
+              <Pause size={14} aria-hidden="true" />
+            )}
+            <span>{paused ? "Resume motion" : "Pause motion"}</span>
+          </button>
+          <button
+            className="scroll-cue"
+            onClick={() =>
+              document
+                .getElementById("journeys")
+                ?.scrollIntoView({ behavior: paused ? "instant" : "smooth" })
+            }
+          >
+            <span>Explore destinations</span>
+            <ArrowDown size={18} />
+          </button>
+        </div>
       </div>
     </section>
   );

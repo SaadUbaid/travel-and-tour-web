@@ -5,6 +5,7 @@ import App from "./App";
 import { TravelProvider } from "./state";
 import "./styles.css";
 import "./flow.css";
+import "./enhancements.css";
 
 const initial = document.body.dataset.initialRoute;
 if (!location.hash && initial && initial !== "/") {

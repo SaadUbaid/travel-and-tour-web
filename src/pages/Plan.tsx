@@ -165,7 +165,7 @@ export default function Plan() {
         {/* Right Side: 4-Step Planner Form */}
         <div className="planner-form-shell" ref={stage}>
           {/* Step Indicators */}
-          <div className="planner-steps-bar" role="tablist">
+          <div className="planner-steps-bar" role="group" aria-label="Booking progress">
             {[
               "1. Destination & Date",
               "2. Your People",
@@ -175,6 +175,8 @@ export default function Plan() {
               <button
                 key={label}
                 type="button"
+                aria-current={step === idx ? "step" : undefined}
+                disabled={idx > step}
                 className={`step-pill ${step === idx ? "active" : step > idx ? "completed" : ""}`}
                 onClick={() => {
                   if (idx < step) setStep(idx);

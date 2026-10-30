@@ -1,9 +1,11 @@
 import Hero from "../components/Hero";
+import DestinationSpotlight from "../components/DestinationSpotlight";
 import {
   Reveal,
   TripCard,
   ProminentLink,
   ClosingCTA,
+  ScrollText,
 } from "../components/UI";
 import { trips, destinations } from "../data";
 import {
@@ -30,10 +32,11 @@ export default function Home() {
         <Reveal className="section-heading">
           <div>
             <span className="eyebrow">Choose a place</span>
-            <h2>Popular destinations</h2>
+            <ScrollText>Popular destinations</ScrollText>
           </div>
           <ProminentLink to="/destinations">All Destinations</ProminentLink>
         </Reveal>
+        <DestinationSpotlight />
         <div className="catalog-grid popular-grid">
           {destinations.slice(0, 4).map((place, i) => (
             <TripCard
@@ -50,7 +53,7 @@ export default function Home() {
         <Reveal className="section-heading">
           <div>
             <span className="eyebrow">Handcrafted Journeys</span>
-            <h2>Featured tours</h2>
+            <ScrollText>Featured tours</ScrollText>
           </div>
           <div className="section-heading-actions">
             <p>
@@ -73,7 +76,7 @@ export default function Home() {
           <Reveal className="section-heading text-center">
             <div>
               <span className="eyebrow">The Saadi Standard</span>
-              <h2>What We Offer & Guarantee</h2>
+              <ScrollText>What We Offer & Guarantee</ScrollText>
               <p className="section-subtitle">
                 Everything you need for a safe, memorable, and hassle-free tour across Pakistan.
               </p>
@@ -127,7 +130,7 @@ export default function Home() {
       <section className="values-section wrap section-space">
         <Reveal>
           <span className="eyebrow">Travel With Saadi</span>
-          <h2>Why travel with us?</h2>
+          <ScrollText>Why travel with us?</ScrollText>
         </Reveal>
         <div className="values-grid">
           {[
@@ -159,7 +162,7 @@ export default function Home() {
           <Reveal className="section-heading">
             <div>
               <span className="eyebrow">Real Travelers · Genuine Feedback</span>
-              <h2>Guest Reviews</h2>
+              <ScrollText>Guest Reviews</ScrollText>
             </div>
             <ProminentLink to="/contact">Plan Your Tour With Saadi</ProminentLink>
           </Reveal>
